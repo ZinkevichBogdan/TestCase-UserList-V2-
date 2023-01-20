@@ -1,0 +1,11 @@
+@import './variables';
+@import './libs/normalize';
+.conteiner { 
+   margin:  0 auto;
+   padding: 0 100px 0 100px;
+}
+
+body {
+   background: $black;
+}
+

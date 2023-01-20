@@ -1,0 +1,142 @@
+@import '../../scss/variables';
+
+.userCard {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+
+   .containerCard {
+      width: 500px;
+      min-height: 350px;
+      border-radius: 20px;
+      transition: 1.5s ease-in-out;
+      transform-style: preserve-3d;
+      margin: 0 0px 30px 0;
+     
+
+      &:hover {
+         -webkit-transform: rotateY(180deg);
+         transform: rotateY(180deg);
+      }
+
+   }
+
+}
+
+.side {
+   font-size: 20px;
+   position: absolute;
+   text-align: center;
+   width: 100%;
+   height: 100%;
+   color: $white;
+   transform-style: preserve-3d;
+   backface-visibility: hidden;
+   border-radius: 20px;
+
+   .content {
+      transform: translatez(70px) scale(0.8);
+      line-height: 1.5em;
+
+      h2 {
+         font-size: 40px;
+         position: relative;
+
+
+         &::before {
+            content: "";
+            position: absolute;
+            bottom: -25px;
+            height: 3px;
+            background-color: $red;
+            width: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+         }
+      }
+
+      p {
+         font-family: Arial, Helvetica, sans-serif;
+         margin-top: 50px;
+         line-height: 2em;
+         font-size: 20px;
+         letter-spacing: 2px;
+      }
+   }
+
+}
+
+.front {
+   z-index: 2;
+   background-size: 100vh;
+   background-size: cover;
+   background-color: $backgroundCard;
+   background-image: url(https://userscontent2.emaze.com/images/f9538183-0ff9-478f-b964-c8ab90421e3b/3d28e192fda5c17250f96a2779c84475.jpg);
+
+   .content {
+      padding: 20px;
+
+      .textConteiner {
+         width: 450px;
+         margin: 0 auto;
+      }
+   }
+}
+
+.back {
+   background-color: $backgroundCard;
+   transform: rotateY(180deg);
+   z-index: 0;
+   background-image: url(https://userscontent2.emaze.com/images/f9538183-0ff9-478f-b964-c8ab90421e3b/3d28e192fda5c17250f96a2779c84475.jpg);
+}
+
+.backInfo .info {
+   background: transparent;
+   border: 0;
+   border-bottom: 2px solid $borderBottom ;
+   padding: 5px;
+   width: 100%;
+   color: $white;
+   text-align: left;
+
+   p {
+      margin: 15px 0;
+   }
+}
+
+.buttonBlock {
+   position: relative;
+   width: 50px;
+   height: 50px;
+
+}
+
+
+.deleteUser {
+   position: absolute;
+   bottom:350px;
+   left: 450px;
+   background-color: $backgroundCard;
+   margin: 30px;
+   padding: 5px 5px;
+   border: 3px solid #555;
+   border-radius: 20%;
+   color: #fff;
+   cursor: pointer;
+   color: #fff;
+   transition: 0.35s ease-in-out;
+
+   img {
+      width: 35px;
+      height: 35px;
+   }
+
+   &:hover {
+      background-color: $white;
+   }
+
+   &:active {
+      -webkit-transform: rotateY(180deg);
+      transform: rotateY(180deg);
+   }
+}
