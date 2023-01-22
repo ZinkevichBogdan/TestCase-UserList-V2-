@@ -1,15 +1,16 @@
+import React, { FC } from 'react'
 import { useForm } from 'react-hook-form';
 import { useAddUserMutation } from '../../services/UserServices';
 import styles from './FormAddUser.module.scss'
 import './FormAddUser.module.scss'
 import classNames from 'classnames';
-
 import { removeFlag } from '../../store/slice/setClassName'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { IUser } from '../../models/IUser';
+import { IUser } from '../../@types/IUser';
 import { SubmitHandler } from 'react-hook-form/dist/types';
+import close from '../../assets/logo/close.svg'
 
-const FormAddUser = () => {
+const FormAddUser: FC = () => {
    const dispatch = useAppDispatch()
    const active = useAppSelector(state => state.setClassName.active);
 
@@ -29,13 +30,13 @@ const FormAddUser = () => {
 
    const [addUser] = useAddUserMutation()
 
-   const onSubmit: SubmitHandler<IUser> = async (data) => {
+   const onSubmit: SubmitHandler<IUser> = async (data): Promise<void> => {
       await addUser({ ...data }).unwrap()
       reset()
       closeForm()
    }
 
-   const closeForm = (): void => {
+   const closeForm = () => {
       dispatch(removeFlag())
    }
 
@@ -48,7 +49,7 @@ const FormAddUser = () => {
 
                <div onClick={() => closeForm()}>
                   <button className={styles.closeForm} >
-                     <img src="/assets/logo/close.svg" alt="" />
+                     <img src={close} alt="" />
                   </button>
                </div>
 

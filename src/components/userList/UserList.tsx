@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useGetUsersQuery, useDeleteUserMutation } from '../../services/UserServices'
 import styles from './UsersList.module.scss'
 import classNames from 'classnames'
 import Placeholder from '../placeholder/Placeholder'
+import trash from '../../assets/logo/trash.svg'
 
 
 
-const UserList = () => {
+
+const UserList: FC = () => {
    const { data = [], isLoading } = useGetUsersQuery('');
    const [deleteUser] = useDeleteUserMutation();
-   const [offset, setOffset] = useState(9);
+   const [offset, setOffset] = useState<number>(9);
 
-   const handleDeleteUser = async (id: number) => {
+   const handleDeleteUser = async (id: number): Promise<void> => {
       await deleteUser(id).unwrap()
    }
 
@@ -82,7 +84,7 @@ const UserList = () => {
 
                            <div className={styles.buttonBlock}>
                               <button onClick={() => handleDeleteUser(user.id)} className={styles.deleteUser} >
-                                 <img src="/assets/logo/trash.svg" alt="" />
+                                 <img src={trash} alt="" />
                               </button>
                            </div>
 

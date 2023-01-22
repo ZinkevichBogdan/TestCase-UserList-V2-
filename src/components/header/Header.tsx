@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { FC } from 'react'
 import styles from './Header.module.scss'
 import { addFlag } from '../../store/slice/setClassName'
 import { useAppDispatch } from '../../hooks/redux';
+import close from '../../assets/logo/close.svg'
 
-const Header = () => {
+const Header: FC = () => {
 
    const dispatch = useAppDispatch();
 
@@ -14,12 +15,12 @@ const Header = () => {
    return (
 
       <div className={styles.header}>
-         
+
          <h1 className={styles.h1} >Список користувачів</h1>
 
          <div className={styles.buttonBlock} onClick={() => showForm()}>
             <button className={styles.openForm} >
-               <img src="assets/logo/close.svg" alt="" />
+               <img src={close} alt="" />
             </button>
          </div>
 

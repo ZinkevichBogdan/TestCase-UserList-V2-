@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
+import preloader from '../../assets/logo/preloader.svg'
 
 
-const Placeholder = () => (
+const Placeholder: FC = () => (
 
   <div>
-    <img src="/assets/logo/preloader.svg" alt="" />
+    <img src={preloader} alt="" />
   </div>
 )
 
